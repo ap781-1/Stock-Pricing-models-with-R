@@ -22,21 +22,6 @@ sigma <- 0.6            # volatility of volatility
 
 # Heston model simulation function
 heston_model_sim <- function(S0, v0, rho, kappa, theta, sigma, T, N, M) {
-  """
-  Inputs:
-   - S0, v0: initial parameters for asset and variance
-   - rho   : correlation between asset returns and variance
-   - kappa : rate of mean reversion in variance process
-   - theta : long-term mean of variance process
-   - sigma : vol of vol / volatility of variance process
-   - T     : time of simulation
-   - N     : number of time steps
-   - M     : number of scenarios / simulations
-  
-  Outputs:
-  - asset prices over time (matrix)
-  - variance over time (matrix)
-  """
   dt <- T / N
   
   # Arrays for storing prices and variances
@@ -215,3 +200,4 @@ cat("Summary Statistics for Terminal Asset Prices:\n")
 cat("rho = 0.98: mean =", mean(S_p[N + 1, ]), "sd =", sd(S_p[N + 1, ]), "\n")
 cat("rho = -0.98: mean =", mean(S_n[N + 1, ]), "sd =", sd(S_n[N + 1, ]), "\n")
 cat("GBM: mean =", mean(gbm), "sd =", sd(gbm), "\n")
+
